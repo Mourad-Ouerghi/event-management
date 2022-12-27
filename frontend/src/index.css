@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+img {
+  width: 290px;
+  height: 190px;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
@@ -18,6 +23,10 @@ a {
 
 p {
   line-height: 1.7;
+}
+
+.description p {
+  font-size: smaller;
 }
 
 ul {

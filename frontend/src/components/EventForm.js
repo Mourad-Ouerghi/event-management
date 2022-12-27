@@ -9,8 +9,9 @@ function EventForm()
         eventDescription: '',
         eventStartDate: '',
         eventEndDate: '',
+        eventImage: '',
       })
-      const { eventName, eventDescription, eventStartDate, eventEndDate } = formData
+      const { eventName, eventDescription, eventStartDate, eventEndDate, eventImage } = formData
     
       const onChange = (e)=>{
         setFormData((prevState) => ({
@@ -23,7 +24,7 @@ function EventForm()
         e.preventDefault()
           try {
             const response = await axios.post('http://localhost:5000/api/events/',
-            JSON.stringify({eventName, eventDescription, eventStartDate, eventEndDate}),
+            JSON.stringify({eventName, eventDescription, eventStartDate, eventEndDate, eventImage}),
             {
               headers : {'content-type': 'application/json'},
               withCredentials: true,
@@ -36,6 +37,7 @@ function EventForm()
               eventDescription: '',
               eventStartDate: '',
               eventEndDate: '',
+              eventImage: '',
             })
           } catch (error) {
               if(!error.response)
@@ -98,6 +100,17 @@ function EventForm()
             name='eventEndDate'
             value={eventEndDate}
             placeholder='Enter the date in this format YY-MM-DD'
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group'>
+        <input
+            type='text'
+            className='form-control'
+            id='eventImage'
+            name='eventImage'
+            value={eventImage}
+            placeholder='Enter the link of the event image'
             onChange={onChange}
           />
         </div>

@@ -17,7 +17,7 @@ const getEvents = asyncHandler(async (req, res )=>{
 //@route POST /api/events
 //@access Private
 const setEvent = asyncHandler(async (req, res)=>{
-    if(!req.body.eventName || !req.body.eventDescription || !req.body.eventStartDate || !req.body.eventEndDate)
+    if(!req.body.eventName || !req.body.eventDescription || !req.body.eventStartDate || !req.body.eventEndDate || !req.body.eventImage)
     {
         res.status(400).json({message : "Please make sure all the fields are filled"})
         throw new Error('Please make sure all the fields are filled')
@@ -34,6 +34,7 @@ const setEvent = asyncHandler(async (req, res)=>{
         eventDescription: req.body.eventDescription,
         eventStartDate: startDate,
         eventEndDate: endDate,
+        eventImage: req.body.eventImage,
     })
 
     res.status(200).json(event)
@@ -63,7 +64,7 @@ const updateEvent = asyncHandler(async (req, res )=>{
         res.status(404)
         throw new Error('Event not found')
     }
-    if(req.body.eventName==="" || !req.body.eventDescription==="" || !req.body.eventStartDate===null || !req.body.eventEndDate===null)
+    if(req.body.eventName==="" || !req.body.eventDescription==="" || !req.body.eventStartDate===null || !req.body.eventEndDate===null || !req.body.eventImage===null)
     {
         res.status(400)
         throw new Error('Please make sure all the fields are filled')

@@ -23,9 +23,10 @@ function EventItem({ event }) {
       <div className='event'>
         {/* <div>{new Date(event.createdAt).toLocaleString('en-US')}</div> */}
         <h3>{event.eventName}</h3>
-        <p>{event.eventDescription}</p>
-        <p>Start date : {moment(new Date(event.eventStartDate).toLocaleString('en-US')).format('LL')}</p>
-        <p>End date : {moment(new Date(event.eventEndDate).toLocaleString('en-US')).format('LL')}</p>
+        <p className='description'>Start date : {moment(new Date(event.eventStartDate).toLocaleString('en-US')).format('LL')}</p>
+        <p className='description'>End date : {moment(new Date(event.eventEndDate).toLocaleString('en-US')).format('LL')}</p>
+        <img src={event.eventImage}></img>
+        <p className='description'>{event.eventDescription}</p>
         <button onClick={deleteEvent} className='close'>
           X
         </button>
